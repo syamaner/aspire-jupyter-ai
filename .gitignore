@@ -398,3 +398,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.DS_Store
+src/.idea/**/*
+.idea/**/*
+
+src/AspireJupyterAI.AppHost/Ollama/data/**/*
+src/AspireJupyterAI.AppHost/Jupyter/Notebooks/.ipynb_checkpoints/**/*
+src/AspireJupyterAI.AppHost/Jupyter/Notebooks/image/.ipynb_checkpoints/**/*

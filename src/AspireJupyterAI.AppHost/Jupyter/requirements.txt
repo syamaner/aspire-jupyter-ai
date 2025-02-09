@@ -1,0 +1,9 @@
+opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-distro
+opentelemetry-exporter-otlp
+ipywidgets
+jupyter_contrib_nbextensions
+jupyter-ai[all]
+numpy
+matplotlib
+opencv-python
