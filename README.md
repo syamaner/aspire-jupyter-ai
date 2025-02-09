@@ -2,6 +2,13 @@
 
 Brief demonstration of how to use Local Coding Assistant models with Jupyter Notebook.
 
+Supported kernels:
+
+- .NET (C#)
+- .NET (F#)
+- .NET (PowerShell)
+- Python 3 (ipykernel)
+
 System components:
 
 - Ollama
