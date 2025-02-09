@@ -17,8 +17,35 @@ System components:
 
 ![Setup overview - locally hosted Ollama](./doc/aspire-docker-network-2.png)
 
+## Configuration
+
+[launchSettings.json](./src/AspireJupyterAI.AppHost/Properties/launchSettings.json) has the following configurations allowing different models depending on capabilities of host to ber enabled.
+
+### http-ollama-host
+
+This is the configuration where Aspire will not spin up Ollama container. instead it will connect to an Ollama host that runs on the host (or optionally on thelocal network)
+
+In this configuration, Ollama is assumed to be running on the host machine and has the necessary models pulled.
+The connection happens via host.docker.internal:11434 and using the default port on host.
+
+### http-ollama-local
+
+In this case Ollama will be managed by .NET Aspire and we will spin up a container resource for it. Then the correct connection strings will be injected into Jupyter out of the box.
+
+### http-openai
+
+In this case we will not spin up Ollama but use OpenAI instead.
+For this to work, in the use secrets for AppHost, the following value needs to be added:
+
+```json
+{
+  "Parameters:OpenAIKey": "your API key"
+}
+```
+Once the secret is set, it will be passed to the Jupyter container and will be configured automatically using [the referecned bash script that starts jupyter server in the container](./src/AspireJupyterAI.AppHost/Jupyter/run.sh)
+
 
 ## Sources:
 
-- [](https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md)
-- [](https://github.com/jupyterlab/jupyter-ai)
+- [NotebookswithJupyter.md](https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md)
+- [jupyter-ai](https://github.com/jupyterlab/jupyter-ai)
